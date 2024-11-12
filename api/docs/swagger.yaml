@@ -1,0 +1,2458 @@
+definitions:
+  handler.Response:
+    properties:
+      data: {}
+      description:
+        type: string
+      error: {}
+      status:
+        type: integer
+    type: object
+  models.Admin:
+    properties:
+      created_at:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.AdminLoginRequest:
+    properties:
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  models.AdminLoginResponse:
+    properties:
+      access_token:
+        type: string
+      id:
+        type: string
+      phone:
+        type: string
+      refresh_token:
+        type: string
+    type: object
+  models.Banner:
+    properties:
+      created_at:
+        type: string
+      image_url:
+        type: string
+    type: object
+  models.Branch:
+    properties:
+      address:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Category:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.ComboUpdateS:
+    properties:
+      combo_items:
+        items:
+          $ref: '#/definitions/models.UpdateComboItem'
+        type: array
+      description:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  models.CreateAdmin:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  models.CreateBanner:
+    properties:
+      image_url:
+        type: string
+    type: object
+  models.CreateBranch:
+    properties:
+      address:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      name:
+        type: string
+    type: object
+  models.CreateCategory:
+    properties:
+      name:
+        type: string
+    type: object
+  models.CreatePayment:
+    properties:
+      is_paid:
+        type: boolean
+      order_id:
+        type: string
+      payment_method:
+        type: string
+      user_id:
+        type: string
+    type: object
+  models.CreateProduct:
+    properties:
+      category_id:
+        type: string
+      description:
+        type: string
+      image_url:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  models.CreateUser:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      sex:
+        type: string
+    type: object
+  models.GetAllAdminsResponse:
+    properties:
+      Admins:
+        items:
+          $ref: '#/definitions/models.Admin'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetAllBannerResponse:
+    properties:
+      branches:
+        items:
+          $ref: '#/definitions/models.Banner'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetAllBranchesResponse:
+    properties:
+      branches:
+        items:
+          $ref: '#/definitions/models.Branch'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetAllCategoriesResponse:
+    properties:
+      categories:
+        items:
+          $ref: '#/definitions/models.Category'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetAllProductsResponse:
+    properties:
+      count:
+        type: integer
+      products:
+        items:
+          $ref: '#/definitions/models.Product'
+        type: array
+    type: object
+  models.GetAllUsersResponse:
+    properties:
+      count:
+        type: integer
+      users:
+        items:
+          $ref: '#/definitions/models.User'
+        type: array
+    type: object
+  models.Order:
+    properties:
+      address_name:
+        type: string
+      created_at:
+        type: string
+      delivery_status:
+        type: string
+      id:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      order_items:
+        items:
+          $ref: '#/definitions/models.OrderItem'
+        type: array
+      status:
+        type: string
+      total_price:
+        type: number
+      updated_at:
+        type: string
+      user_id:
+        type: string
+    type: object
+  models.OrderCreateRequest:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/models.OrderItem'
+        type: array
+      order:
+        $ref: '#/definitions/models.Order'
+    type: object
+  models.OrderItem:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      order_id:
+        type: string
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      total_price:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.OrderUpdateS:
+    properties:
+      address_name:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      order_items:
+        items:
+          $ref: '#/definitions/models.UpdateOrderItem'
+        type: array
+      status:
+        type: string
+      total_price:
+        type: number
+    type: object
+  models.PatchOrderStatusRequest:
+    properties:
+      status:
+        type: string
+    type: object
+  models.Product:
+    properties:
+      category_id:
+        type: string
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      image_url:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.Response:
+    properties:
+      data: {}
+      description:
+        type: string
+      statusCode:
+        type: integer
+    type: object
+  models.SwaggerComboCreate:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  models.SwaggerComboCreateRequest:
+    properties:
+      combo:
+        $ref: '#/definitions/models.SwaggerComboCreate'
+      items:
+        items:
+          $ref: '#/definitions/models.SwaggerComboItems'
+        type: array
+    type: object
+  models.SwaggerComboItems:
+    properties:
+      product_id:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  models.SwaggerOrderCreate:
+    properties:
+      address_name:
+        type: string
+      delivery_status:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      user_id:
+        type: string
+    type: object
+  models.SwaggerOrderCreateRequest:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/models.SwaggerOrderItems'
+        type: array
+      order:
+        $ref: '#/definitions/models.SwaggerOrderCreate'
+    type: object
+  models.SwaggerOrderItems:
+    properties:
+      product_id:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  models.UpdateAdmin:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  models.UpdateBranch:
+    properties:
+      address:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      name:
+        type: string
+    type: object
+  models.UpdateCategory:
+    properties:
+      name:
+        type: string
+    type: object
+  models.UpdateComboItem:
+    properties:
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  models.UpdateOrderItem:
+    properties:
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  models.UpdateProduct:
+    properties:
+      category_id:
+        type: string
+      description:
+        type: string
+      image_url:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  models.UpdateUser:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      sex:
+        type: string
+    type: object
+  models.User:
+    properties:
+      created_at:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      sex:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.UserLoginPhoneConfirmRequest:
+    properties:
+      mobile_phone:
+        type: string
+      smscode:
+        type: string
+    type: object
+  models.UserLoginResponse:
+    properties:
+      access_token:
+        type: string
+      id:
+        type: string
+      phone:
+        type: string
+      refresh_token:
+        type: string
+    type: object
+  models.UserRegisterRequest:
+    properties:
+      mobile_phone:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a sample server celler server.
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /food/api/v1/admin/login:
+    post:
+      consumes:
+      - application/json
+      description: Login to Food_delivery
+      parameters:
+      - description: login
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.AdminLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.AdminLoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Admin login
+      tags:
+      - admin_auth
+  /food/api/v1/category:
+    post:
+      consumes:
+      - application/json
+      description: Create Category
+      operationId: create_category
+      parameters:
+      - description: Category
+        in: body
+        name: Category
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCategory'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Category
+      tags:
+      - category
+  /food/api/v1/category/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update Category
+      operationId: update_category
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateCategoryRequest
+        in: body
+        name: Category
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCategory'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Category
+      tags:
+      - category
+  /food/api/v1/combo:
+    post:
+      consumes:
+      - application/json
+      description: Create a new combo with a set of items
+      operationId: create_combo
+      parameters:
+      - description: CreateComboRequest
+        in: body
+        name: Combo
+        required: true
+        schema:
+          $ref: '#/definitions/models.SwaggerComboCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Combo
+      tags:
+      - combo
+  /food/api/v1/createadmin:
+    post:
+      consumes:
+      - application/json
+      description: Create a new admin
+      operationId: create_admin
+      parameters:
+      - description: Admin
+        in: body
+        name: Admin
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateAdmin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Admin'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Admin
+      tags:
+      - admin
+  /food/api/v1/createbanner:
+    post:
+      consumes:
+      - application/json
+      description: Create a new banner
+      operationId: create_banner
+      parameters:
+      - description: Banner
+        in: body
+        name: Banner
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateBanner'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Banner'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Banner
+      tags:
+      - banner
+  /food/api/v1/createbranch:
+    post:
+      consumes:
+      - application/json
+      description: Create Branch
+      operationId: create_branch
+      parameters:
+      - description: Branch
+        in: body
+        name: Branch
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateBranch'
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Branch'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Branch
+      tags:
+      - branch
+  /food/api/v1/createpayment:
+    post:
+      consumes:
+      - application/json
+      description: Create a new payment
+      operationId: create_payment
+      parameters:
+      - description: Payment
+        in: body
+        name: payment
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreatePayment'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create payment
+      tags:
+      - payment
+  /food/api/v1/createproduct:
+    post:
+      consumes:
+      - application/json
+      description: Create a new product
+      operationId: create_product
+      parameters:
+      - description: Product
+        in: body
+        name: Product
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Product
+      tags:
+      - product
+  /food/api/v1/createuser:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user
+      operationId: create_user
+      parameters:
+      - description: User
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create User
+      tags:
+      - user
+  /food/api/v1/deleteadmin/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a admin by their ID
+      operationId: delete_admin
+      parameters:
+      - description: Admin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Admin by ID
+      tags:
+      - admin
+  /food/api/v1/deletebanner/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a banner by its ID
+      operationId: delete_banner
+      parameters:
+      - description: Banner ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Banner by ID
+      tags:
+      - banner
+  /food/api/v1/deletebranch/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API deletes a branch by its ID
+      operationId: delete_branch
+      parameters:
+      - description: Branch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete a branch by its ID
+      tags:
+      - branch
+  /food/api/v1/deletecategory/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This api deletes a category by its id
+      operationId: delete_category
+      parameters:
+      - description: category ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: delete a category by its id
+      tags:
+      - category
+  /food/api/v1/deletefile:
+    delete:
+      consumes:
+      - application/json
+      description: Delete File
+      operationId: delete_file
+      parameters:
+      - description: ID of the file to delete
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: Success Request
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete File
+      tags:
+      - Upload File
+  /food/api/v1/deleteorder/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a order by its Id
+      operationId: delete_order
+      parameters:
+      - description: Order Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete order by Id
+      tags:
+      - order
+  /food/api/v1/deleteproduct/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a product by its ID
+      operationId: delete_product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Product by ID
+      tags:
+      - product
+  /food/api/v1/deleteuser/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a user by their ID
+      operationId: delete_user
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete User by ID
+      tags:
+      - user
+  /food/api/v1/getalladmins:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all admins
+      operationId: get_all_admins
+      parameters:
+      - description: Search users by name or email
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number of results per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllAdminsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get All Admins
+      tags:
+      - admin
+  /food/api/v1/getallbanners:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all banners
+      operationId: get_all_banners
+      parameters:
+      - description: Search banners by image_url
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number of results per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllBannerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get All Banners
+      tags:
+      - banner
+  /food/api/v1/getallbranches:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves information about all branches
+      operationId: getall_branch
+      parameters:
+      - description: Search branches
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllBranchesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get all branches
+      tags:
+      - branch
+  /food/api/v1/getallcategory:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves information about all categories
+      operationId: getall_category
+      parameters:
+      - description: categories
+        in: query
+        name: search
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllCategoriesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get all category
+      tags:
+      - category
+  /food/api/v1/getallcombos:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all Combo
+      operationId: get_all_combos
+      parameters:
+      - description: Search combos by name or description
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number of results per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get All Combos
+      tags:
+      - combo
+  /food/api/v1/getallorders:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all orders
+      operationId: get_all_orders
+      parameters:
+      - description: Search orders by name or description
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number of results per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get All Orders
+      tags:
+      - order
+  /food/api/v1/getallproducts:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all products
+      operationId: get_all_products
+      parameters:
+      - description: get by category_id
+        in: query
+        name: category_id
+        type: string
+      - description: Search products by name or description
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number of results per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllProductsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get All Products
+      tags:
+      - product
+  /food/api/v1/getallusers:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all users
+      operationId: get_all_users
+      parameters:
+      - description: Search users by name or email
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit number of results per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllUsersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get All Users
+      tags:
+      - user
+  /food/api/v1/getbranch/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a branch by its ID and return its info
+      operationId: get_branch
+      parameters:
+      - description: Branch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Branch'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get Branch by ID
+      tags:
+      - branch
+  /food/api/v1/getbycategory/{id}:
+    get:
+      consumes:
+      - application/json
+      description: This api gets a category by its id and returns its info
+      operationId: get_category
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get a category by its id
+      tags:
+      - category
+  /food/api/v1/getbyidadmin/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a user by their ID
+      operationId: get_admin
+      parameters:
+      - description: Admin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Admin'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get User by ID
+      tags:
+      - admin
+  /food/api/v1/getbyiduser/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a user by their ID
+      operationId: get_user
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get User by ID
+      tags:
+      - user
+  /food/api/v1/getcombo/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get_combo by its id
+      operationId: get_combo
+      parameters:
+      - description: Combo Id
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Successfully retrieved combo
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get_combo
+      tags:
+      - combo
+  /food/api/v1/getorder/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get_order
+      operationId: get_order
+      parameters:
+      - description: Order Id or user Id
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.OrderCreateRequest'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get_order
+      tags:
+      - order
+  /food/api/v1/getproduct/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a product by its ID
+      operationId: get_product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get Product by ID
+      tags:
+      - product
+  /food/api/v1/order:
+    post:
+      consumes:
+      - application/json
+      description: Create Order
+      operationId: create_order
+      parameters:
+      - description: CreateOrderRequest
+        in: body
+        name: Order
+        required: true
+        schema:
+          $ref: '#/definitions/models.SwaggerOrderCreateRequest'
+      responses:
+        "201":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Order
+      tags:
+      - order
+  /food/api/v1/orderStatus/{id}:
+    patch:
+      consumes:
+      - application/json
+      description: Change the status of an order
+      operationId: change_order_status
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: New Order Status
+        in: body
+        name: status
+        required: true
+        schema:
+          $ref: '#/definitions/models.PatchOrderStatusRequest'
+      responses:
+        "200":
+          description: Order status updated successfully
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Change Order Status
+      tags:
+      - order
+  /food/api/v1/sendcode:
+    post:
+      consumes:
+      - application/json
+      description: Registering to Food_delivery
+      parameters:
+      - description: register
+        in: body
+        name: register
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserRegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: User register
+      tags:
+      - auth
+  /food/api/v1/updateadmin/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing Admin
+      operationId: update_admin
+      parameters:
+      - description: Admin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateAdminRequest
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateAdmin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Admin'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Admin
+      tags:
+      - admin
+  /food/api/v1/updatebranch/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update Branch
+      operationId: update_branch
+      parameters:
+      - description: Branch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateBranchRequest
+        in: body
+        name: Branch
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateBranch'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Branch'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Branch
+      tags:
+      - branch
+  /food/api/v1/updatecombo/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing combo
+      operationId: update_combo
+      parameters:
+      - description: Combo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateOrderRequest
+        in: body
+        name: Combo
+        required: true
+        schema:
+          $ref: '#/definitions/models.ComboUpdateS'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Combo
+      tags:
+      - combo
+  /food/api/v1/updateorder/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing order
+      operationId: update_order
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateOrderRequest
+        in: body
+        name: Order
+        required: true
+        schema:
+          $ref: '#/definitions/models.OrderUpdateS'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Order
+      tags:
+      - order
+  /food/api/v1/updateproduct/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing product
+      operationId: update_product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateProductRequest
+        in: body
+        name: Product
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Product
+      tags:
+      - product
+  /food/api/v1/updateuser/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing user
+      operationId: update_user
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateUserRequest
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update User
+      tags:
+      - user
+  /food/api/v1/uploadfiles:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload Multiple Files
+      operationId: upload_multiple_files
+      parameters:
+      - collectionFormat: csv
+        description: File to upload
+        in: formData
+        items:
+          type: file
+        name: file
+        required: true
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Upload Multiple Files
+      tags:
+      - Upload File
+  /food/api/v1/user/byphoneconfirm:
+    post:
+      consumes:
+      - application/json
+      description: Login to the system using phone number and OTP
+      parameters:
+      - description: login
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserLoginPhoneConfirmRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserLoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Customer login by phone confirmation
+      tags:
+      - auth
+  /food/api/v1/user/register:
+    post:
+      consumes:
+      - application/json
+      description: Registering to Food_delivery
+      parameters:
+      - description: register
+        in: body
+        name: register
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateUser'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.UserLoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: User register
+      tags:
+      - auth
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
